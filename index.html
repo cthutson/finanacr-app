@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#0e1117"/>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="style.css"/>
+  <title>Titan 52 Command Center</title>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Titan 52</h1>
+      <p>Command Center</p>
+    </header>
+
+    <section class="cards">
+      <button onclick="show('finance')">💰 Finance</button>
+      <button onclick="show('peptides')">💉 Peptides</button>
+      <button onclick="show('workouts')">🏋️ Workouts</button>
+      <button onclick="show('retirement')">📈 Retirement</button>
+      <button onclick="show('business')">🎥 Titan 52 Biz</button>
+    </section>
+
+    <section id="finance" class="panel active">
+      <h2>Finance</h2>
+      <input id="income" type="number" placeholder="Monthly income"/>
+      <input id="bills" type="number" placeholder="Monthly bills"/>
+      <input id="savings" type="number" placeholder="Emergency fund"/>
+      <button onclick="saveFinance()">Save</button>
+      <p id="financeResult"></p>
+    </section>
+
+    <section id="peptides" class="panel">
+      <h2>Peptides</h2>
+      <input id="pepName" placeholder="Peptide"/>
+      <input id="pepDose" placeholder="Dose / units"/>
+      <input id="pepSchedule" placeholder="Days / time"/>
+      <button onclick="addPeptide()">Add</button>
+      <ul id="pepList"></ul>
+      <small>Tracking only. Not medical advice.</small>
+    </section>
+
+    <section id="workouts" class="panel">
+      <h2>Workouts</h2>
+      <input id="workoutName" placeholder="Workout"/>
+      <input id="workoutDay" placeholder="Day"/>
+      <button onclick="addWorkout()">Add</button>
+      <ul id="workoutList"></ul>
+    </section>
+
+    <section id="retirement" class="panel">
+      <h2>Retirement</h2>
+      <input id="age" type="number" placeholder="Current age"/>
+      <input id="retireAge" type="number" placeholder="Retirement age"/>
+      <input id="tsp" type="number" placeholder="TSP balance"/>
+      <input id="monthly" type="number" placeholder="Monthly contribution"/>
+      <button onclick="calcRetirement()">Calculate</button>
+      <p id="retireResult"></p>
+    </section>
+
+    <section id="business" class="panel">
+      <h2>Titan 52 Business</h2>
+      <input id="revenue" type="number" placeholder="Revenue"/>
+      <input id="expenses" type="number" placeholder="Expenses"/>
+      <button onclick="saveBusiness()">Save</button>
+      <p id="bizResult"></p>
+    </section>
+  </main>
+  <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) navigator.serviceWorker.register("service-worker.js");
+  </script>
+</body>
+</html>
